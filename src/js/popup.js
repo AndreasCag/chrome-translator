@@ -1,3 +1,10 @@
+import translate from './workers/translate';
+
 import '@/stylus/main.styl';
 
-console.log('test');
+document
+  .querySelector('button')
+  .addEventListener('click', async () => {
+    const result = await translate('dad');
+    alert(result);
+  });
