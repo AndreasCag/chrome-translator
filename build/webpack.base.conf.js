@@ -33,8 +33,7 @@ module.exports = {
       {
         test: /\.pug$/,
         use: [
-          { loader: 'html-loader' },
-          { loader: 'pug-html-loader' },
+          { loader: 'pug-loader' },
         ],
       },
       {
@@ -77,7 +76,6 @@ module.exports = {
           template: resolve('src', 'pug', `${entryPoint}.pug`),
           filename: `${entryPoint}.html`,
           chunks: ['manifest', 'vendor', entryPoint],
-          chunksSortMode: 'dependency',
           minify: {
             removeComments: true,
             collapseWhitespace: true,

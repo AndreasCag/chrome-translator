@@ -1,10 +1,10 @@
-import translate from './workers/translate';
+import Vue from 'vue';
 
+import testMessage from './test-workers/worker';
 import '@/stylus/main.styl';
+import popup from '@/vue/popup.vue';
 
-document
-  .querySelector('button')
-  .addEventListener('click', async () => {
-    const result = await translate('dad');
-    alert(result);
-  });
+testMessage();
+console.log('test');
+
+window._vm = new Vue(popup).$mount('#app');
