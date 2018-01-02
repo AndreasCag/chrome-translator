@@ -5,7 +5,7 @@ const path = require('path');
 
 const resolve = require('../helpers/resolve');
 
-const entryPoints = [
+const htmlEntryPoints = [
   'popup',
   'options',
   'background',
@@ -14,12 +14,13 @@ const entryPoints = [
 module.exports = {
   entry: {
     ..._.zipObject(
-      entryPoints,
-      _.map(entryPoints, entryPoint => resolve('src', 'js', entryPoint)),
+      htmlEntryPoints,
+      _.map(htmlEntryPoints, entryPoint => resolve('src', 'js', entryPoint)),
     ),
+    'translate-helper': resolve('src', 'js', 'inject-scripts', 'translate-helper.js'),
   },
   output: {
-    filename: '[name].[hash].bundle.js',
+    filename: '[name].bundle.js',
   },
   resolve: {
     alias: {
@@ -44,7 +45,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
         use: [
           {
             loader: 'url-loader',
@@ -61,6 +62,7 @@ module.exports = {
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
+      chunks: htmlEntryPoints,
       minChunks: 3,
     }),
 
@@ -70,7 +72,7 @@ module.exports = {
     }),
 
     ..._.map(
-      entryPoints,
+      htmlEntryPoints,
       entryPoint => (
         new HtmlWebpackPlugin({
           template: resolve('src', 'pug', `${entryPoint}.pug`),

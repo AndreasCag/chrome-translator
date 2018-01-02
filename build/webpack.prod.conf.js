@@ -51,6 +51,15 @@ const WebpackProdConfig = {
           ],
         }),
       },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            { loader: 'css-loader' },
+          ],
+        }),
+      },
     ],
   },
   plugins: [

@@ -50,6 +50,13 @@ const WebpackDevConfig = {
           { loader: 'stylus-loader' },
         ],
       },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ],
+      },
     ],
   },
   devServer: {

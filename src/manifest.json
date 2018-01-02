@@ -6,13 +6,40 @@
   },
   "browser_action": {
     "default_popup": "popup.html",
-    "default_icon": "icon-34.png"
+    "default_icon": "language-32.png"
   },
   "icons": {
-    "128": "icon-128.png"
+    "128": "language-128.png"
   },
   "version": "1.0",
   "manifest_version": 2,
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
-  "permissions": [ "tabs", "storage", "webRequest", "contextMenus", "*://*/", "*://translate.google.com/*", "*://translate.google.cn/*", "*://translate.googleapis.com/*", "*://translate.googleapis.cn/*", "*://ajax.googleapis.com/*", "*://*.microsofttranslator.com/*", "*://datamarket.accesscontrol.windows.net/*", "*://*.yandex.com/*", "*://*.yandex.net/*", "*://www.translate.ru/*", "*://*.translate.ua/*", "*://info.babylon.com/*", "*://*.urbandictionary.com/*", "https://www.paypalobjects.com/*", "https://translator.sailormax.net/*" ]
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_scripts": [{
+    "all_frames": true,
+    "js": [ "translate-helper.bundle.js" ],
+    "matches": [ "*://*/*" ],
+    "run_at": "document_start"
+  }],
+  "permissions": [
+    "tabs",
+    "storage",
+    "webRequest",
+    "contextMenus",
+    "*://*/",
+    "*://translate.google.com/*",
+    "*://translate.google.cn/*",
+    "*://translate.googleapis.com/*",
+    "*://translate.googleapis.cn/*",
+    "*://ajax.googleapis.com/*",
+    "*://*.microsofttranslator.com/*",
+    "*://datamarket.accesscontrol.windows.net/*",
+    "*://*.yandex.com/*",
+    "*://*.yandex.net/*",
+    "*://www.translate.ru/*",
+    "*://*.translate.ua/*",
+    "*://info.babylon.com/*",
+    "*://*.urbandictionary.com/*",
+    "https://www.paypalobjects.com/*",
+    "https://translator.sailormax.net/*"
+  ]
 }
