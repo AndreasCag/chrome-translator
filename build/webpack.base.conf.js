@@ -11,6 +11,13 @@ const htmlEntryPoints = [
   'background',
 ];
 
+const ifdefLoaderSettings = {
+  DEBUG: !global.isProd,
+  version: 3,
+  'ifdef-verbose': true,
+  'ifdef-triple-slash': true,
+};
+
 module.exports = {
   entry: {
     ..._.zipObject(
@@ -43,6 +50,10 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
+          },
+          {
+            loader: 'ifdef-loader',
+            options: ifdefLoaderSettings,
           },
         ],
       },

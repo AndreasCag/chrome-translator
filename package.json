@@ -1,7 +1,7 @@
 {
   "name": "chrome-translator",
   "version": "1.0.0",
-  "description": "Chrome translating extendion",
+  "description": "Aprix translator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -38,6 +38,7 @@
     "html-webpack-plugin": "^2.24",
     "ifdef-loader": "^2.0.3",
     "lodash": "^4.17.4",
+    "loglevel": "^1.6.0",
     "material-design-icons": "^3.0.1",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "pug": "^2.0.0-rc.4",

@@ -1,15 +1,23 @@
+/// #if DEBUG
+const log = require('loglevel');
+/// #else
+const log = {
+  debug() {},
+};
+/// #endif
+
 if (!window.__translateExt) {
   window.__translateExt = {};
 
   chrome.runtime.onMessage.addListener(
     (request, sender, sendResponse) => {
-      console.log('Trasnsaltor get request');
-      console.log(request);
-      console.log(sender);
+      log.debug('Trasnsaltor get request');
+      log.debug(request);
+      log.debug(sender);
       if (request.checkSelection) {
         const selection = window.getSelection();
-        console.log('Get selection');
-        console.log(selection);
+        log.debug('Get selection');
+        log.debug(selection);
         if (selection.type === 'Range') {
           sendResponse({ hasSelection: true });
 
@@ -20,8 +28,8 @@ if (!window.__translateExt) {
               string: selection.toString(),
             },
             (response) => {
-              console.log('get translation response');
-              console.log(response);
+              log.debug('get translation response');
+              log.debug(response);
 
               //alert(response.mainTranslate);
 
