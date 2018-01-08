@@ -1,3 +1,5 @@
+global.isProd = false;
+
 const WebpackMerge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');

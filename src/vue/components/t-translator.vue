@@ -122,7 +122,7 @@
             this.selectedLanguageFrom,
             this.selectedLanguageTo,
             this.text,
-            );
+          );
           const translation = googleTranslateParser(data);
           this.translatedText = translation;
         },

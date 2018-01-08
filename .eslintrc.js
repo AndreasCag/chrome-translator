@@ -15,6 +15,7 @@ module.exports = {
   ],
   globals: {
     'resolve': true,
+    'chrome': true,
   },
   // check if imports actually resolve
   // settings: {
@@ -51,7 +52,8 @@ module.exports = {
     'no-shadow': [0],
     'consistent-return': [0],
     'import/extensions': [0],
-    'space-before-function-paren': ['error', 'never'],
+    'spaced-comment': [0],
+    'no-console': [0],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   },
